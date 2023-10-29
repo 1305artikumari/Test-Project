@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+      crossorigin="anonymous"
+    ></script>
+    <title>Test Project</title>
+    <style>
+      #main {
+        border: 2px solid coral;
+        border-radius: 5px;
+        font-weight: 500;
+        margin: 50px auto;
+        padding: 25px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container" id="main">
+      <!-- <h1>Hello</h1> -->
+      <form action="/" method="post" id="exp">
+        <div class="container">
+          <label for="itemName">Item Name</label>
+          <input type="text" name="itemName" id="itemName" />
+
+          <label for="description">Description</label>
+          <input type="text" name="description" id="description" />
+
+          <label for="price">Price</label>
+          <input type="text" name="price" id="price" />
+
+          <label for="quantity">Quantity</label>
+          <input type="text" name="quantity" id="quantity" />
+
+          <button type="submit" id="submit">Add Item</button>
+        </div>
+      </form>
+      <br /><br />
+      <div>
+        <ul id="display-items">
+          <% for (const exp of sellers) { %>
+          <li>
+            <%= exp.itemName %> - <%= exp.description %> - <%= exp.price %> -
+            <%= exp.quantity %>
+            <!-- New "Buy1" button -->
+            <form action="/edit1/<%= exp.id %>" method="GET" style="margin-top: 10px">
+              <button type="submit" class="buy-button">Buy1</button>
+            </form>
+            <!-- router.get("edit/quantity1/:id", sellersController.editQuantity1Sellers); -->
+            <!-- <button type="button" class="buy-button">Buy1</button> -->
+
+            <!-- New "Buy2" button -->
+            <form action="/edit/quantity2/<%= exp.id %>" method="GET" style="margin-top: 10px"></form>
+              <button type="button" class="buy-button">Buy2</button>
+            </form>
+
+            <!-- New "Buy3" button -->
+            <form action="/edit/quantity3/<%= exp.id %>" method="GET" style="margin-top: 10px"></form>
+              <button type="button" class="buy-button">Buy3</button>
+            </form>
+
+
+
+            <form action="/<%= exp.id %>" method="POST">
+              <button type="submit">DELETE</button>
+            </form>
+
+            <form action="/<%= exp.id %>" method="GET" style="margin-top: 10px">
+              <button type="submit" class="edit-button">Edit</button>
+            </form>
+          </li>
+          <% } %>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+      crossorigin="anonymous"
+    ></script>
+    <title>Test Project</title>
+    <style>
+      #main {
+        border: 2px solid coral;
+        border-radius: 5px;
+        font-weight: 500;
+        margin: 50px auto;
+        padding: 25px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container" id="main">
+      <form action="/edit/<%= seller1.id %>" method="get" id="seller1">
+        <div class="container">
+          <label for="itemName">Item Name</label>
+          <input value="<%=seller1.itemName%>" type="text" name="itemName" id="itemName" />
+          <label for="description">Description</label>
+          <input value="<%=seller1.description%>" type="text" name="description" id="description" />
+          <label for="price">Price</label>
+          <input value="<%=seller1.price%>" type="text" name="price" id="price" />
+          <label for="quantity">Quantity</label>
+          <input value="<%=seller1.quantity%>" type="text" name="quantity" id="quantity" />
+          <button type="submit" id="submit">Modify Seller Details</button>
+        </div>
+      </form>
+      <br /><br />
+    </div>
+  </body>
+</html>
